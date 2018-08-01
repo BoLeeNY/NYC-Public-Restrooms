@@ -1,0 +1,34 @@
+{
+  "name": "nyc-public-restrooms",
+  "version": "1.0.0",
+  "description": "NYC public restrooms API\r https://data.cityofnewyork.us/Recreation/Directory-Of-Toilets-In-Public-Parks/hjae-yuav",
+  "main": "server.js",
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "ejs": "^2.6.1",
+    "express": "^4.16.3",
+    "morgan": "^1.9.0",
+    "nodemon": "^1.18.3",
+    "pg-promise": "^8.4.5"
+  },
+  "devDependencies": {
+    "eslint": "^4.19.1",
+    "eslint-config-airbnb-base": "^13.0.0",
+    "eslint-plugin-import": "^2.13.0"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "nodemon",
+    "debug": "nodemon --inspect-brk"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/BoLeeNY/NYC-Public-Restrooms.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/BoLeeNY/NYC-Public-Restrooms/issues"
+  },
+  "homepage": "https://github.com/BoLeeNY/NYC-Public-Restrooms#readme"
+}
