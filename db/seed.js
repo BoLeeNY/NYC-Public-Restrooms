@@ -11,3 +11,10 @@ const checkOk = (resp) => {
 fetch('https://data.cityofnewyork.us/resource/r27e-u3sy.json')
   .then(checkOk);
   .then()
+
+  findAll(brs) {
+    br.forEach(`
+        INSERT INTO parks (name, location, borough)
+        VALUES ($/name/, $/location/, $/borough/)
+        RETURNING *`, brs);
+  },
