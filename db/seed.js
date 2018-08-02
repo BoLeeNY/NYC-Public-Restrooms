@@ -1,4 +1,6 @@
 const fetch = require('node-fetch');
+const parks = require('../models/parks');
+const access = require('../models/access');
 
 const checkOk = (resp) => {
   console.log(resp);
@@ -8,13 +10,28 @@ const checkOk = (resp) => {
   return resp.json();
 };
 
-fetch('https://data.cityofnewyork.us/resource/r27e-u3sy.json')
-  .then(checkOk);
-  .then()
+/*function seedParks() {
+  return fetch('https://data.cityofnewyork.us/resource/r27e-u3sy.json')
+    .then(checkOk)
+    .then((data) => {
+      for (let i = 0; i < data.length; i += 1) {
+        parks.save(data[i]);
+        access.save(data[i]);
+      }
+    });
+}*/
 
-  findAll(brs) {
-    br.forEach(`
-        INSERT INTO parks (name, location, borough)
-        VALUES ($/name/, $/location/, $/borough/)
-        RETURNING *`, brs);
-  },
+function seedParks() {
+    return fetch('https://data.cityofnewyork.us/resource/r27e-u3sy.json')
+    .then(checkOk)
+      .then((data) => {
+        for (let i = 0; i < data.length; i += 1) {
+            if (data.hadicap_accessible === null) {
+                data.handicap_accessible = 'none';
+            }
+            parks.save(data[i]);
+        }
+      });
+  }
+
+seedParks();

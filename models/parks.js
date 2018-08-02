@@ -39,8 +39,8 @@ module.exports = {
 
   save(park) {
     return db.one(`
-    INSERT INTO parks (name, location, borough)
-    VALUES ($/name/, $/location/, $/borough/)
+    INSERT INTO parks (name, location, borough, open, handicap)
+    VALUES ($/name/, $/location/, $/borough/, $/open_year_round/, $/handicap_accessible/)
     RETURNING *`, park);
   },
 
