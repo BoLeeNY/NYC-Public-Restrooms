@@ -6,17 +6,8 @@ module.exports = {
 
   findAll() {
     return db.many(`
-    SELECT 
-        p.name,
-        p.location,
-        p.borough,
-        a.open,
-        a.handicap
+    SELECT *
     FROM parks p
-    JOIN parks_access x
-    ON x.parks_id = p.id
-    JOIN access a
-    ON x.access_id = a.id
     ORDER BY p.name
     `);
   },

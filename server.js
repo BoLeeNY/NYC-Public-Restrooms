@@ -3,6 +3,10 @@ const logger = require('morgan');
 const bodyParser = require('body-parser');
 const app = express();
 
+const parksRouter = require('./routes/parksRouter');
+
+app.set('view engine', 'ejs');
+
 
 const PORT = process.env.PORT || 3000;
 
@@ -10,6 +14,8 @@ app.use(logger('dev'));
 
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
+
+app.use('/parks', parksRouter);
 
 app.get('/', (requestAnimationFrame, res) => {
   res.json('Hello World');
