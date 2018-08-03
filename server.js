@@ -1,6 +1,8 @@
 const express = require('express');
 const logger = require('morgan');
 const bodyParser = require('body-parser');
+const methodOverride = require('method-override');
+
 const app = express();
 
 const parksRouter = require('./routes/parksRouter');
@@ -11,7 +13,7 @@ app.set('view engine', 'ejs');
 const PORT = process.env.PORT || 3000;
 
 app.use(logger('dev'));
-
+app.use(methodOverride('_method'));
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 

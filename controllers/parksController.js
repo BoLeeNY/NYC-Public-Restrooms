@@ -32,9 +32,9 @@ module.exports = {
   },
 
   destroy(req, res, next) {
-      const { id } = req.params;
-      db.delete(id)
+    const { id } = req.params;
+    db.destroy(id)
       .then(data => next())
       .catch(e => next(e));
-  }
+  },
 };
