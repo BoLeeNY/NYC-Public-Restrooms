@@ -8,11 +8,15 @@
 </head>
 <body>
     <div>
-        <% parks.forEach((park) => { %>
+        <% park.forEach((park) => { %>
             <p>Name: <%=park.name %></p>
             <p>Location: <%=park.location %></p>
-            <p>Open: <%park.open %></p>
-            <p>Handicap Accessible: <%park.handicap %></p>
+            <P>Borough: <%=park.borough %></P>
+            <p>Open: <%=park.open %></p>
+            <p>Handicap Accessible: <%=park.handicap %></p>
+            <form method="POST" action="/parks/<%=id %>?_method=DELETE">
+            <button type="submit">Delete</button>
+            </form>
             <% }) %>
     </div>
 </body>

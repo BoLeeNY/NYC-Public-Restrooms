@@ -14,24 +14,15 @@ module.exports = {
 
   findById(id) {
     return db.one(`
-    SELECT 
-        p.name,
-        p.location,
-        p.borough,
-        a.open,
-        a.handicap
+    SELECT *
     FROM parks p
-    JOIN parks_access x
-    ON x.parks_id = p.id
-    JOIN access a
-    ON x.access_id = a.id
     WHERE p.id = $1`, id);
   },
 
   save(park) {
     return db.one(`
     INSERT INTO parks (name, location, borough, open, handicap)
-    VALUES ($/name/, $/location/, $/borough/, $/open_year_round/, $/handicap_accessible/)
+    VALUES ($/name/, $/location/, $/borough/, $/open/, $/handicap/)
     RETURNING *`, park);
   },
 
