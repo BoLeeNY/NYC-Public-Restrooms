@@ -22,8 +22,12 @@ module.exports = {
   },
 
   new(req, res, next) {
-    const {name, location, borough, open, handicap} = req.body;
-    db.save({name, location, borough, open, handicap})
+    const {
+      name, location, borough, open, handicap,
+    } = req.body;
+    db.save({
+      name, location, borough, open, handicap,
+    })
       .then((parks) => {
         res.locals.parks = parks;
         next();
@@ -34,7 +38,28 @@ module.exports = {
   destroy(req, res, next) {
     const { id } = req.params;
     db.destroy(id)
-      .then(data => next())
+      .then(() => next())
       .catch(e => next(e));
   },
+
+  update(req, res, next) {
+    const { id } = req.params;
+    const parkData = req.body;
+    db.update(id, parkData)
+      .then(() => next())
+      .catch(e => next(e));
+  },
+
+  blankPark(req, res, next) {
+    const park = {
+      name: '',
+      location: '',
+      borough: '',
+      open: '',
+      handicap: '',
+    };
+    res.locals.data = park;
+    next();
+  },
+
 };

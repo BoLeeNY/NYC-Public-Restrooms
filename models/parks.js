@@ -26,14 +26,16 @@ module.exports = {
     RETURNING *`, park);
   },
 
-  update(park) {
+  update(id, park) {
     return db.one(`
       UPDATE parks
-      SET name = $/name/,
-      location = $/location/,
-      borough = $/borough/
-      WHERE parks.id = $/parks_id/
-      RETURNING *`, park);
+      SET name = $2,
+      location = $3,
+      borough = $4,
+      open = $5,
+      handicap = $6
+      WHERE parks.id = $1
+      RETURNING *`, [id, park.name, park.location, park.borough, park.open, park.handicap]);
   },
 
   destroy(id) {

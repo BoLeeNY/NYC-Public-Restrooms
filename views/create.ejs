@@ -4,32 +4,48 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.1/css/bulma.min.css">
+    <title>Find a new Restroom?</title>
 </head>
 <body>
-    <form action="/parks" method="post">
-        <h2>New Quote</h2>
-        <label for="name">
-          Name:
-          <input type="text" name="name">
-        </label>
-        <label for="location">
-            Location:
-          <input type="text" name="location">
-        </label>
-        <label for="borough">
-            Borough:
-            <input type="text" name="borough">
-        </label>
-        <label for="open">
-            Is It Open?
-            <input type="checkbox" name="open" value="Yes">
-        </label>
-        <label for="handicap">
-            Handicap Accessible?
-            <input type="checkbox" name="handicap" value="Yes">
-        </label>
-        <button type="submit">Create</button>
-      </form>
+    <section class="hero is-primary is-medium is-bold">
+        <div class="hero-body">
+          <div class="container">
+            <h1 class="title">
+                <a href="/parks">
+                    NYC Public Toilets
+                </a>
+            </h1>
+            <h2 class="subtitle">
+              Found A New Toilet?
+            </h2>
+          </div>
+        </div>
+      </section>
+      <div class="column is-large">
+          <form action="/parks" method="post">
+              <label for="name">
+                Name:
+                <input type="text" name="name">
+              </label>
+              <label for="location">
+                  Location:
+                <input type="text" name="location">
+              </label>
+              <label for="borough">
+                  Borough:
+                  <input type="text" name="borough">
+              </label>
+              <label for="open">
+                  Is It Open?
+                  <input type="checkbox" name="open" value="Yes">
+              </label>
+              <label for="handicap">
+                  Handicap Accessible?
+                  <input type="checkbox" name="handicap" value="Yes">
+              </label>
+              <button type="submit">Create</button>
+            </form>
+      </div>
 </body>
 </html>

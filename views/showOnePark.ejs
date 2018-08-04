@@ -4,15 +4,39 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.1/css/bulma.min.css">
     <title>Document</title>
 </head>
 <body>
-    <div>
+    <section class="hero is-primary is-medium is-bold">
+        <div class="hero-body">
+          <div class="container">
+            <h1 class="title">
+                <a href="/parks">
+                    NYC Public Toilets
+                </a>
+            </h1>
+            <h2 class="subtitle">
+              Wee Care
+            </h2>
+          </div>
+        </div>
+    </section>
+    <% let link = parks.location.replace(/\s/g, '%20') %>
+    <% let nextLink = link.replace(/,/g, '%2C') %>
+    <div class="column is-large">
+        <p>ID: <%=parks.id %></p>
         <p>Name: <%=parks.name %></p>
-        <p>Location: <%=parks.location %></p>
+        <p>Location: <a href="https://www.google.com/maps/search/?api=1&query=<%=nextLink%>"><%=parks.location %></a></p>
         <p>Borough: <%=parks.borough %></p>
         <p>Open: <%=parks.open %></p>
         <p>Handicap Accessible: <%=parks.handicap %></p>
+    </div>
+    <div class ="column is-large">
+        <form method="POST" action="/parks/<%=parks.id %>?_method=DELETE">
+            <button class="button is-medium" type="submit ">Delete</button>
+        </form>
+        <button class="button is-medium"><a href="<%=parks.id%>/edit">Edit</a></button>
     </div>
 </body>
 </html>

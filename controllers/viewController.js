@@ -12,8 +12,8 @@ module.exports = {
   },
 
   handleCreate(req, res) {
-    const parkId = res.locals.data;
-    res.render('showOnePark', {park: parkId});
+    const parkId = res.locals.parks;
+    res.redirect(`/parks/${parkId.id}`);
   },
 
   showNew(req, res) {
@@ -22,6 +22,15 @@ module.exports = {
 
   handleDestroy(req, res) {
     res.redirect('/parks');
+  },
+
+  handleUpdate(req, res) {
+    const id = req.params;
+    res.redirect(`/parks/${id.id}`);
+  },
+
+  showEdit(req, res) {
+    res.render('showEditForm');
   },
 
 };
