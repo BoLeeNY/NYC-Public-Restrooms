@@ -1,8 +1,10 @@
-
+// This imports the SQL models
 const db = require('../models/parks');
 
+// This exports all of the functions
 module.exports = {
 
+  // This uses the findAll function from the model and stores the data into res.locals
   index(req, res, next) {
     db.findAll()
       .then((park) => {
@@ -12,6 +14,7 @@ module.exports = {
       .catch(e => next(e));
   },
 
+  // This uses the findById to find and store the data for a single park
   getOne(req, res, next) {
     db.findById(req.params.id)
       .then((parks) => {
@@ -21,6 +24,16 @@ module.exports = {
       .catch(e => next(e));
   },
 
+  // This gives the search function the parameters to search for
+  search(req, res, next) {
+    const parkData = req.body;
+    debugger;
+    db.search(parkData)
+      .then(() => next())
+      .catch(e => next(e));
+  },
+
+  // This takes user input data as parameters to save a park to the database
   new(req, res, next) {
     const {
       name, location, borough, open, handicap,
@@ -35,6 +48,7 @@ module.exports = {
       .catch(e => next(e));
   },
 
+  // This deletes a park based on it's id
   destroy(req, res, next) {
     const { id } = req.params;
     db.destroy(id)
@@ -42,6 +56,7 @@ module.exports = {
       .catch(e => next(e));
   },
 
+  // This updates a parks data based on user input stored in req.body
   update(req, res, next) {
     const { id } = req.params;
     const parkData = req.body;
@@ -50,6 +65,7 @@ module.exports = {
       .catch(e => next(e));
   },
 
+  // This sets empty data values for the user to modify
   blankPark(req, res, next) {
     const park = {
       name: '',
@@ -59,6 +75,17 @@ module.exports = {
       handicap: '',
     };
     res.locals.data = park;
+    next();
+  },
+
+  // This sets empty values for the user to fill with data they want to find
+  searchPark(req, res, next) {
+    const search = {
+      name: '',
+      location: '',
+      borough: '',
+    };
+    res.locals.search = search;
     next();
   },
 
