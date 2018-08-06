@@ -36,21 +36,13 @@
       <% park.forEach((park) => { %>
         <% let link = park.location.replace(/\s/g,'%20') %>
         <% let nextLink = link.replace(/,/g, '%2C') %>
-                  <div class ="column">
-                      <form method="POST" action="/parks/<%=park.id %>?_method=DELETE">
-                      <button class="button is-medium is-danger" type="submit ">Delete</button>
-                  </form>
-                  <button class="button is-medium is-info"><a href="parks/<%=park.id%>/edit">Edit</a></button>
-                  </div>
-            <div class ="columns">
-                <div class="column clearfix">
+                <div class="column is-large">
                     <p>Name: <strong><a href="/parks/<%=park.id %>"><%=park.name %></a></strong></p>
                     <p>Location: <a href="https://www.google.com/maps/search/?api=1&query=<%=nextLink%>"><%=park.location %></a></p>
                     <P>Borough: <%=park.borough %></P>
                     <p>Open: <%=park.open %></p>
                     <p>Handicap Accessible: <%=park.handicap %></p>
                 </div>
-            </div>
     <% }) %>
 
 </body>
