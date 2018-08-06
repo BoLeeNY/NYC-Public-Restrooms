@@ -1,3 +1,5 @@
+// I used the soda-lab as a template for my controller functions
+
 module.exports = {
 
   // This populates the showParks.ejs page with data from res.locals
@@ -26,11 +28,10 @@ module.exports = {
       .then(() => next());
   },
   // This shows the search results
-  showPark(req, res, next) {
-    res.render('showOnePark', {
-      parks: res.locals.search,
-    })
-      .then(() => next());
+  showPark(req, res) {
+    res.render('search', {
+      search: res.locals.data,
+    });
   },
   // This redirects the user back to the homepage after a delete
   handleDestroy(req, res) {

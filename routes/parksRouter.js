@@ -22,7 +22,7 @@ parksRouter.route('/:id/edit')
 // This route prompts a blank form to be filled in
 parksRouter.get('/new', parksController.blankPark, view.showNew);
 // This route searches and displays the users query
-parksRouter.get('/search', parksController.searchPark, view.searchPark, parksController.search, view.showPark);
+parksRouter.get('/search', parksController.search, view.showPark);
 // This route handles displaying, editing, and deleting a single park
 parksRouter.route('/:id')
   .get(parksController.getOne, view.showOne)

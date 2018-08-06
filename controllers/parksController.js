@@ -1,3 +1,4 @@
+// I used the soda-lab as a template for my controller functions
 // This imports the SQL models
 const db = require('../models/parks');
 
@@ -26,10 +27,11 @@ module.exports = {
 
   // This gives the search function the parameters to search for
   search(req, res, next) {
-    const parkData = req.body;
-    debugger;
-    db.search(parkData)
-      .then(() => next())
+    db.search()
+      .then((search) => {
+        res.locals.data = search;
+        next();
+      })
       .catch(e => next(e));
   },
 

@@ -22,21 +22,19 @@ module.exports = {
   },
 
   // This returns all the values from a specific search
-  search(input) {
+  search() {
     return db.many(`
     SELECT *
     FROM parks p
-    WHERE p.name LIKE '%$1%'
-    OR WHERE p.location LIKE '%$2%'
-    OR WHERE p.borough = $3`,
-    [input.name, input.location, input.borough]);
+    WHERE p.borough LIKE '%ook%'
+    `);
   },
 
   // This function creates a new row in table parks
   save(park) {
     return db.one(`
     INSERT INTO parks (name, location, borough, open, handicap)
-    VALUES ($/name/, $/location/, $/borough/, $/open/, $/handicap/)
+    VALUES ($/name/, $/location/, $/borough/, $/open_year_round/, $/handicap_accessible/)
     RETURNING *`, park);
   },
 
