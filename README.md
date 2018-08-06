@@ -36,6 +36,7 @@ Now with my database filled, I moved on to making the controllers and views. I n
 <br>
 With one route completed, I subsequently made a find one park route, create a new park route, delete a route, and lastly an update route. After my CRUD with fully functional, I moved on to styling. 
 <br>
+
 ## Dependencies Used:
 ---
 I used a variety of middleware for this project. I used Express, node-fetch, nodemon, pg-promise, method-override, body-parser, path, ejs, bulma, and morgan.
