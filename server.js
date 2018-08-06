@@ -4,6 +4,7 @@ const logger = require('morgan');
 const bodyParser = require('body-parser');
 const methodOverride = require('method-override');
 
+
 const app = express();
 // Imports the routes
 const parksRouter = require('./routes/parksRouter');

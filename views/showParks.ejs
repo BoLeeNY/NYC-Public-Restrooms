@@ -5,11 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.1/css/bulma.min.css">
-    <link rel="stylesheet" href="./css/styles.css">
+    <link rel="stylesheet" href="/css/styles.css">
     <title>NYC Public Restrooms</title>
 </head>
 <body>
-    <section class="hero is-primary is-medium is-bold">
+    <section class="hero is-primary is-bold">
         <div class="hero-body">
           <div class="container">
             <h1 class="title">
@@ -33,27 +33,25 @@
         </div>
       </section>
 
-    <% park.forEach((park) => { %>
+      <% park.forEach((park) => { %>
         <% let link = park.location.replace(/\s/g,'%20') %>
         <% let nextLink = link.replace(/,/g, '%2C') %>
+                  <div class ="column">
+                      <form method="POST" action="/parks/<%=park.id %>?_method=DELETE">
+                      <button class="button is-medium is-danger" type="submit ">Delete</button>
+                  </form>
+                  <button class="button is-medium is-info"><a href="parks/<%=park.id%>/edit">Edit</a></button>
+                  </div>
             <div class ="columns">
-                <div class="column">
-                    <p>ID: <%=park.id %></p>
-                    <p>Name: <strong><%=park.name %></strong></p>
+                <div class="column clearfix">
+                    <p>Name: <strong><a href="/parks/<%=park.id %>"><%=park.name %></a></strong></p>
                     <p>Location: <a href="https://www.google.com/maps/search/?api=1&query=<%=nextLink%>"><%=park.location %></a></p>
                     <P>Borough: <%=park.borough %></P>
                     <p>Open: <%=park.open %></p>
                     <p>Handicap Accessible: <%=park.handicap %></p>
                 </div>
             </div>
-            <div class ="column is-large">
-                <div class =>
-                    <form method="POST" action="/parks/<%=park.id %>?_method=DELETE">
-                    <button class="button is-medium" type="submit ">Delete</button>
-                    </form>
-                    <button class="button is-medium"><a href="parks/<%=park.id%>/edit">Edit</a></button>
-                </div>
-            </div>
     <% }) %>
+
 </body>
 </html>

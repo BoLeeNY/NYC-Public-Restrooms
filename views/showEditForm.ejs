@@ -5,11 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.1/css/bulma.min.css">
-    <link rel="stylesheet" href="./styles.css">
-    <title>Document</title>
+    <link rel="stylesheet" href="/css/styles.css">
+    <title>Edit Form</title>
 </head>
 <body>
-    <section class="hero is-danger is-medium is-bold">
+    <section class="hero is-danger is-bold">
         <div class="hero-body">
           <div class="container">
             <h1 class="title">
@@ -51,7 +51,8 @@
                 Borough:
                 <input value="<%=parks.borough %>" type="text" name="borough">
             </label>
-            <br>
+        </div>
+        <div>
             <label for="open">
                 Is It Open?
                 <input type="checkbox" name="open" value="<%=parks.open %>"
@@ -62,9 +63,8 @@
                 <input type="checkbox" name="handicap" value="<%=parks.handicap %>"
                 "<% if (parks.handicap === 'Yes') {%> checked <%}%>">
             </label>
-            <input class="button is-info is-medium" type="submit" value="Update">
+        </div>
+        <input class="button is-info is-medium" type="submit" value="Update">
           </form>
-    </div>
-    </form>
 </body>
 </html>
