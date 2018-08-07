@@ -57,3 +57,9 @@ I used a variety of middleware for this project. I used Express, node-fetch, nod
 ## Wireframe:
 ---
 ![img_5068](https://user-images.githubusercontent.com/39596048/43738651-5b8c79aa-9993-11e8-98fc-ed3bbf634d2a.JPG)
+
+## Video:
+---
+<a href="http://www.youtube.com/watch?feature=player_embedded&v=iKHwjrTQop8
+" target="_blank"><img src="http://img.youtube.com/vi/iKHwjrTQop8/0.jpg" 
+alt="IMAGE ALT TEXT HERE" width="240" height="180" border="10" /></a>
