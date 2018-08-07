@@ -38,10 +38,10 @@ module.exports = {
   // This takes user input data as parameters to save a park to the database
   new(req, res, next) {
     const {
-      name, location, borough, open, handicap,
+      name, location, borough, open_year_round, handicap_accessible,
     } = req.body;
     db.save({
-      name, location, borough, open, handicap,
+      name, location, borough, open_year_round, handicap_accessible,
     })
       .then((parks) => {
         res.locals.parks = parks;
